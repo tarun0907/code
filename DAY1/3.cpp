@@ -6,9 +6,15 @@ iii) Find the largest number less than N whose each digit is prime number
 */
 
 bool isPrime(char c) {
+   //checking if digit is prime or not
    return c == '2' || c == '3' || c == '5' || c == '7';
 }
 void decrease(string& n, int i) {
+   /*
+   if digit is not prime and is less than 7
+   then decrementing it to nearest prime digit
+   less than the digit
+   */
    if (n[i] <= '2') {
       n.erase(i, 1);
       n[i] = '7';
@@ -18,7 +24,12 @@ void decrease(string& n, int i) {
       n[i] = '3';
    }else if (n[i] <= '7') {
       n[i] = '5';
-   }else {
+   }
+   /*
+   *if digit is greater than 7 making is 7 as 7 is the
+   greatest prime digit 
+   */
+   else {
       n[i] = '7';
    }
    return;
@@ -42,7 +53,7 @@ string getPrimeDigitsNumber(string n) {
    return n;
 }
 int main() {
-   string n = "222";
+   string n = "221";
    cout << getPrimeDigitsNumber(n) << endl;
    return 0;
 }

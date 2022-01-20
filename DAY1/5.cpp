@@ -1,5 +1,4 @@
 #include <iostream>
-#include<string.h>
 
 /*
 v) Write a program to find the smallest number divisible by all the numbers between 1 to 9.
@@ -8,17 +7,21 @@ v) Write a program to find the smallest number divisible by all the numbers betw
 using namespace std;
 
 int main(){
-    int j=1;
+    int smallestNum=1;
     for(int i=1;i<10;i++)
     {
-       if(j%i==0)
+        //checking if the number is divisible by all numbers from 1-9
+       if(smallestNum%i==0)
        {
            continue;
        }
+        //if the number is not divisible by all numbers then incrementing the number
        else{
-           j++;
+           smallestNum++;
            i=1;
        }
     }
-    cout<<j<<endl;
+    //printing the number
+    cout<<smallestNum<<endl;
+    return 0;
 }

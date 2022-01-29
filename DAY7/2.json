@@ -1,0 +1,17 @@
+{
+    "name":"abc",
+    "salary":50000,
+    "married":false,
+    "grade":null,
+    "address":{
+        "primaryAddress":"23 Sector ab",
+        "secondaryAddress":"pqr",
+        "country":"India",
+        "state":"Delhi"
+    },
+    "mobileNumbers":["ab","cd"],
+    "Address":{
+        "key1":"value1",
+        "key2":"value2"
+    }
+}

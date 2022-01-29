@@ -27,9 +27,9 @@ void maxSlidingWindow(int arr[], int size, int k)
 
 int main()
 {
-	int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	int arr[] = { 1, 3, -1, -3, 5, 3, 6, 7};
 	int size = sizeof(arr) / sizeof(arr[0]);
-	int K = 4;
+	int K = 3;
 
 	maxSlidingWindow(arr, size, K);
 

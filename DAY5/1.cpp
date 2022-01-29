@@ -1,105 +1,89 @@
-#include <iostream>
-using namespace std; 
 
-/*
-1. Write a method void printArray(int[][]arr)
-Prints array elements clock wise and anti-clockwise alternatively.
-Input : 
- 1 2 3
- 4 5 6
- 7 8 9
-Output :
-1 2 3 6 9 8 7 4 5
-3 2 1 4 7 8 9 6 5
-*/
-  
-void clockprintArray(int row, int column, int a[3][3]) 
-{ 
-    int i, k = 0, l = 0;
-  
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int row, col;
+    cin >> row >> col;
 
-    while (k < row && l < column) 
-    { 
-        for (i = l; i < column; ++i) 
-        { 
-            cout<<a[k][i]<<" ";
-        } 
-        k++; 
-  
-        for (i = k; i < row; ++i) 
-        { 
-            cout<<a[i][column-1]<<" "; 
-        } 
-        column--; 
-  
-        if ( k < row) 
-        { 
-            for (i = column-1; i >= l; --i) 
-            { 
-                cout<<a[row-1][i]<<" "; 
-            } 
-            row--; 
-        } 
-  
-        if (l < column) 
-        { 
-            for (i = row-1; i >= k; --i) 
-            { 
+    int matrix[row][col];
 
-                cout<<a[i][l]<<" "; 
-            } 
-            l++;     
-        }  
-               
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            cin >> matrix[i][j];
+        }
     }
-    cout<<endl; 
-} 
 
-void antiClockprintArray(int row, int column, int a[3][3]) 
-{ 
-    int i, k = 0, l = 0; 
-  
+    int rStart = 0;
+    int rEnd = row - 1;
+    int cStart = 0;
+    int cEnd = col - 1;
 
-    while (k < row && l < column) 
-    { 
-        for (i = l; i < column; ++i) 
-        { 
-            cout<<a[i][k]<<" "; 
-        } 
-        k++; 
-  
-        for (i = k; i < row; ++i) 
-        { 
-            cout<<a[column-1][i]<<" "; 
-        } 
-        column--; 
-  
-        if ( k < row) 
-        { 
-            for (i = column-1; i >= l; --i) 
-            { 
-                cout<<a[i][row-1]<<" "; 
-            } 
-            row--; 
-        } 
-  
-        if (l < column) 
-        { 
-            for (i = row-1; i >= k; --i) 
-            { 
-                cout<<a[l][i]<<" "; 
-            } 
-            l++;     
-        }         
+    while (rStart <= rEnd && cStart <= cEnd)
+    {
+        for (int col = cStart; col <= cEnd; col++)
+        {
+            cout << matrix[rStart][col] << " ";
+        }
+        rStart++;
+
+        for (int row = rStart; row <= rEnd; row++)
+        {
+            cout << matrix[row][cEnd] << " ";
+        }
+        cEnd--;
+
+        for (int col = cEnd; col >= cStart; col--)
+        {
+            cout << matrix[rEnd][col] << " ";
+        }
+        rEnd--;
+
+        for (int row = rEnd; row >= rStart; row--)
+        {
+            cout << matrix[row][cStart] << " ";
+        }
+        cStart++;
     }
-    cout<<endl;  
-} 
-  
-int main() 
-{ 
-    int a[3][3]={{1,2,3},{4,5,6},{7,8,9}};
+
     
-    clockprintArray(3, 3, a); 
-    antiClockprintArray(3, 3, a); 
-    return 0; 
-} 
+    cout << endl;
+    cout << endl;
+
+
+    rStart = 0;
+    rEnd = row - 1;
+    cStart = 0;
+    cEnd = col - 1;
+
+    while (rStart <= rEnd && cStart <= cEnd)
+    {
+        for (int col = cEnd; col >= cStart; col--)
+        {
+            cout << matrix[rStart][col] << " ";
+        }
+        rStart++;
+
+        for (int row = rStart; row <= rEnd; row++)
+        {
+            cout << matrix[row][cStart] << " ";
+        }
+        cStart++;
+
+        for (int col = cStart; col <= cEnd; col++)
+        {
+            cout << matrix[rEnd][col] << " ";
+        }
+        rEnd--;
+
+        for (int row = rEnd; row >= rStart; row--)
+        {
+            cout << matrix[row][cEnd] << " ";
+        }
+        cEnd--;
+    }
+
+    return 0;
+}

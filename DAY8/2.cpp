@@ -155,7 +155,6 @@ class Customer
            // cout<<i<<" "<<wid<<endl;
             if(dem[i]<=wid){
                 if(noteCounter[i]>=(wid/dem[i])){
-                    
                      if(i==0){
                          a.r1.setCount(a.r1.getCount()-(wid/dem[i]));
                      }
@@ -171,24 +170,7 @@ class Customer
 
                       wid-=(wid/dem[i])*dem[i];
                 }
-                else{
-                    
-                    if(i==0){
-                         a.r1.setCount(a.r1.getCount()-noteCounter[i]);
-                     }
-                     else if(i==1){
-                         a.r2.setCount(a.r2.getCount()-(noteCounter[i]));
-                     }
-                     else if(i==2){
-                         a.r3.setCount(a.r3.getCount()-(noteCounter[i]));
-                     }
-                     else if(i==3){
-                         a.r4.setCount(a.r4.getCount()-(noteCounter[i]));
-                     }
-                     wid-=noteCounter[i]*dem[i];
-                }
                 i--;
-                
             }
             else{
                 i--;
@@ -212,7 +194,7 @@ int main(){
     cout<<"Details:";
     a.getDetails();
     cout<<"Balance in ATM :"<<a.getAmount()<<endl;
-    Customer c(3000,1);
+    Customer c(4000,1);
     cout<<"Customer balance: ";
     c.getBalance();
     cout<<endl;
